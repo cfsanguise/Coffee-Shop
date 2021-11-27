@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledItem = styled.div`
     background-color: #FFFFFF;
@@ -23,8 +24,11 @@ const StyledItem = styled.div`
         font-size: 14px;
         margin-bottom: 0;
         margin-top: 14px;
+        text-align: center;
+        word-break: no-wrap;
     }
     .item__country {
+        display: ${props => props.best ? 'none': ''};
         font-style: normal;
         font-weight: normal;
         line-height: 20px;
@@ -49,19 +53,26 @@ const StyledItem = styled.div`
     }
 `
 
-const Item = ({name, country, price, photo}) => {
+const Item = ({name, country, price, photo, id, setCurrentItem, best}) => {
+
+    const handleClick = () => {
+        setCurrentItem(id)
+    }
+
     return (
-        <StyledItem>
-            <a href='/item'>
+        <StyledItem best={best}>
+            <Link onClick={handleClick} to={`/ourcoffee/item/${id}`}>
                 <div className='item__content'>
                     <img className='item__photo' src={photo} alt='coffe package' />
                     <h3 className='item__name'>{name}</h3>
                     <h4 className='item__country'>{country}</h4>
                     <h5 className='item__price'>{price}$</h5>
                 </div>
-            </a>
+            </Link>
         </StyledItem>
     )
 }
+
+
 
 export default Item;

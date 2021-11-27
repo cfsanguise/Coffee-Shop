@@ -12,11 +12,11 @@ const StyledItems = styled.section`
 
 `
 
-const Items = ({items}) => {
+const Items = ({items, setCurrentItem}) => {
     return (
         <StyledItems>
-            {items.map(({name, country, price, photo}) => {
-                return <Item name={name} country={country} price={price} photo={photo} />
+            {items.map(({name, country, price, photo, id, best}) => {
+                return <Item best setCurrentItem={setCurrentItem} name={name} country={country} price={price} photo={photo} key={id} id={id} />
             })}
         </StyledItems>
     )

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navbar from '../../../components/navbar/Navbar';
+import Navbar from '../navbar/Navbar';
 
 const StyledHeader = styled.header`
     width: 100%;
     min-height: 260px;
-    background: url('./assets/images/Coffee_shop.png') center center/cover no-repeat;
+    background: url('${props => props.photo}') center center/cover no-repeat;
     .header__title {
         font-style: normal;
         font-weight: bold;
@@ -17,11 +17,11 @@ const StyledHeader = styled.header`
     }
 `
 
-const Header = props => {
+const Header = ({title, photo}) => {
     return (
-        <StyledHeader>
+        <StyledHeader photo={photo}>
             <Navbar />
-            <h2 className='header__title'>Our Coffee</h2>
+            <h2 className='header__title'>{title}</h2>
         </StyledHeader>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navbar from '../../../components/navbar/Navbar';
-import BeanDivider from '../../../components/beanDivider/BeanDivider';
+import Navbar from '../navbar/Navbar';
+import BeanDivider from '../beanDivider/BeanDivider';
 
 const StyledFooter = styled.footer`
     display: flex;

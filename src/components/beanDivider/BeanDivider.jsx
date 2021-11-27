@@ -7,14 +7,14 @@ const StyledBeanDivider = styled.div`
     align-items: center;
     .bean {
         img {
-            filter: invert(100%);
+            filter: ${props => props.white ? 'unset': 'invert(100%)'};
         }
     }
     .line {
         display: block;
         width: 60px;
         height: 1px;
-        background-color: black;
+        background-color: ${props => props.white ? '#fff': '#000'};
         &.left {
             margin-right: 25px;
         }
@@ -24,11 +24,11 @@ const StyledBeanDivider = styled.div`
     }
 `;
 
-const BeanDivider = props => {
+const BeanDivider = ({white}) => {
     return (
-        <StyledBeanDivider>
+        <StyledBeanDivider white={white}>
             <div className='line left'></div>
-            <div className='bean'><img src={'./assets/icons/Beans.svg'} alt='bean divider' /></div>
+            <div className='bean'><img src={'http://localhost:3000/assets/icons/Beans.svg'} alt='bean divider' /></div>
             <div className='line right'></div>
         </StyledBeanDivider>
     )

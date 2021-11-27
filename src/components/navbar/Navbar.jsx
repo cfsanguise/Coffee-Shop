@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const StyledNavbar = styled.nav`
     width: 100%;
@@ -33,9 +34,9 @@ const Navbar = props => {
     return (
         <StyledNavbar footernav={props.footernav}>
             <ul className="navbar__items">
-                <li className="navbar__item"><a href='#link'><img className='logo' src={'./assets/icons/Logo.svg'} alt='Coffe shop logo' /></a></li>
-                <li className="navbar__item"><a href='#link'>Our coffee</a></li>
-                <li className="navbar__item"><a href='#link'>For your pleasure</a></li>
+                <li className="navbar__item"><NavLink to='/'><img className='logo' src={'http://localhost:3000/assets/icons/Logo.svg'} alt='Coffe shop logo' /></NavLink></li>
+                <li className="navbar__item"><NavLink to='/ourcoffee'>Our coffee</NavLink></li>
+                <li className="navbar__item"><NavLink to='/pleasure'>For your pleasure</NavLink></li>
             </ul>
         </StyledNavbar>
     )
